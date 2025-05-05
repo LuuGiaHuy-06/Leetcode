@@ -15,29 +15,23 @@ func letterCombinations(digits string) []string {
 	var path []byte
 
 	var dfs func(index int)
-	dfs = func (index int) {
+	dfs = func(index int) {
 		if index == len(digits) {
 			result = append(result, string(path))
 			return // break
 		}
-		
+
 		letters := m[digits[index]]
 		for i := range letters {
 			path = append(path, letters[i]) // choose
 			dfs(index + 1)
-			path = path[:len(path)-1]  // Un-choose (backtrack)
+			path = path[:len(path)-1] // Un-choose (backtrack)
 		}
 	}
 
 	dfs(0)
 	return result
 }
-
-
-
-
-
-
 
 /*func letterCombinations(digits string) []string {
 	m := map[byte][]byte {
@@ -55,7 +49,7 @@ func letterCombinations(digits string) []string {
     // supporting function:
 	multi := func(s [][]byte, q int) [][]byte {
 		result := make([][]byte, 0, len(s)*q)
-	
+
 		for _, item := range s {
 			for i := 0; i < q; i++ {
 				copyItem := make([]byte, len(item)) // Create a new slice

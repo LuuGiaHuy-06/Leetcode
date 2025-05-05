@@ -11,7 +11,7 @@ func lengthOfLongestSubstring(s string) int {
 	longest := 0
 	for char := range s {
 		if index, ok := m[s[char]]; ok && index >= csub { // check for index exists in map m and the index is avalable (on current substring)
-			if char - csub > longest {
+			if char-csub > longest {
 				longest = char - csub
 			}
 			csub = index + 1 // new csub
@@ -24,7 +24,7 @@ func lengthOfLongestSubstring(s string) int {
 	}
 	// handle last case
 	//println(len(s), csub, longest)
-	if (len(s) - csub > longest) {
+	if len(s)-csub > longest {
 		longest = len(s) - csub
 	}
 

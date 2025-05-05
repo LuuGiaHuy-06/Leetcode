@@ -5,7 +5,7 @@ func isValid(s string) bool {
 	match := map[byte]byte{'(': ')', '[': ']', '{': '}'}
 
 	stack := make([]byte, 0, len(s)) // preallocate
-    for c := range s {
+	for c := range s {
 		if m[s[c]] {
 			stack = append(stack, match[s[c]])
 		} else {
